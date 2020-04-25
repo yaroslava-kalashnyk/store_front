@@ -1,0 +1,22 @@
+footer {
+  width: 100%;
+  height: 10vh;
+  box-shadow: 0 5px 10px 5px black;
+}
+
+.container, .row {
+  height: 100%;
+}
+
+.logo {
+  padding: 5px;
+  width: 15%;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.copyright {
+  padding: 5px;
+}
