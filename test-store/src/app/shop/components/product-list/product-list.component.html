@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <li (click)="reloadProducts('games')">Games</li>
+    <li (click)="reloadProducts('accessories')">Accessories</li>
+    <li (click)="reloadProducts('consoles&vr')">Consoles & VR</li>
+  </ul>
+</nav>
+
+
+<div class="product-list">
+  <div class="product-item" *ngFor="let product of productsList$ | async">
+    <app-product [product]="product"></app-product>
+  </div>
+</div>
