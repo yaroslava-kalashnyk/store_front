@@ -2,3 +2,7 @@ img {
   height: 200px;
   width: 150px;
 }
+
+.unavailable {
+  opacity: 0.5;
+}

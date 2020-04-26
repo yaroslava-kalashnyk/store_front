@@ -1,0 +1,11 @@
+<div class="order-list">
+  <div class="order-item" *ngFor="let product of products">
+    <app-order-item [product]="product"
+                    (removeItem)="removeItem($event)"
+                    (changePrice)="changePrice($event)">
+    </app-order-item>
+  </div>
+
+  <h1>Total price: {{totalPrice | number : '1.2-2'}}$</h1>
+  <button class="btn btn-dark" (click)="pay()">PAY</button>
+</div>

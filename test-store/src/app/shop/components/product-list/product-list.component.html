@@ -1,14 +1,42 @@
-<nav>
-  <ul>
-    <li (click)="reloadProducts('games')">Games</li>
-    <li (click)="reloadProducts('accessories')">Accessories</li>
-    <li (click)="reloadProducts('consoles&vr')">Consoles & VR</li>
-  </ul>
-</nav>
+<div class="content">
+
+  <div class="row">
+    <div class="nav col-md-4">
+      <nav>
+        <ul>
+          <li (click)="changeCategory('games')">Games</li>
+          <li (click)="changeCategory('accessories')">Accessories</li>
+          <li (click)="changeCategory('consoles&vr')">Consoles & VR</li>
+        </ul>
+      </nav>
+    </div>
 
 
-<div class="product-list">
-  <div class="product-item" *ngFor="let product of productsList$ | async">
-    <app-product [product]="product"></app-product>
+    <div class="product-list col-md-8 row">
+      <div class="product-item nav col-md-4" *ngFor="let product of productsList$ | async">
+        <app-product [product]="product"></app-product>
+      </div>
+    </div>
   </div>
+
+  <div class="pagination row">
+
+    <select class="col-md-2" name="select" (change)="onPageSizeChange($event.target.value)">
+      <option value="10" selected>10</option>
+      <option value="30">30</option>
+      <option value="50">50</option>
+    </select>
+
+    <div class="pages col-md-8">
+      <div class="left" (click)="onLeftClick()"><p><</p></div>
+
+      <div class="page-number" *ngFor="let pageNumber of  pageAmount | array" (click)="onPageClick(pageNumber)">
+        <p [ngClass]="{select: currentPage | select : pageNumber}"> {{pageNumber}} </p>
+      </div>
+
+      <div class="right" (click)="onRightClick()"><p>></p></div>
+    </div>
+
+  </div>
+
 </div>

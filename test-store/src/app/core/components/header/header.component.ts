@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit} from '@angular/core';
+import {OrderService} from '../../../order/services/order.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  public showCart: boolean;
+  private showCart$: EventEmitter<boolean>;
+  private showCartSubscription: Subscription;
 
-  ngOnInit(): void {
+  constructor(private orderService: OrderService) {
   }
 
+  ngOnInit(): void {
+    this.showCart$ = this.orderService.getShowCartEventEmitter();
+    this.showCartSubscription = this.showCart$.subscribe(showCart => this.showCart = showCart);
+  }
+
+  ngOnDestroy(): void {
+    this.showCartSubscription.unsubscribe();
+  }
 }

@@ -1,3 +1,6 @@
-<p>{{product.name}}</p>
-<p>{{product.price}}$</p>
-<img [src]=getImageLink() alt="image game">
+<div class="product-item" [ngClass]="{unavailable: !isAvailable}">
+  <p>{{product.name}}</p>
+  <p>{{product.price}}$</p>
+  <img [src]=getImageLink() alt="image game">
+  <button class="btn btn-primary" (click)="buy()" [disabled]=!isAvailable>Buy</button>
+</div>

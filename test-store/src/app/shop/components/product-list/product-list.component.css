@@ -34,3 +34,26 @@ nav li:hover a {
 nav li:last-child {
   border: 0;
 }
+
+select {
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: darkseagreen;
+}
+
+.pagination {
+  width: 100%;
+}
+
+.select {
+  background-color: red;
+}
+
+.left, .right, .page-number {
+  font-size: 20px;
+  display: inline-block;
+  margin: 10px;
+  border: 1px outset silver;
+  background-color: silver;
+}

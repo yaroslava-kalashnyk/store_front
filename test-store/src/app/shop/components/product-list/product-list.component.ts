@@ -1,29 +1,76 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component, EventEmitter, OnDestroy, OnInit} from '@angular/core';
 import {Product} from '../../models/product.model';
 import {ProductService} from '../../services/products.service';
+import {Observable} from 'rxjs';
+import {map, tap} from 'rxjs/operators';
+import {OrderService} from '../../../order/services/order.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   public productsList$: Observable<Product[]>;
+  public pageAmount: number;
+
+  public currentPage: number;
+  public currentPageSize: number;
   private category: string;
 
-  constructor(public productService: ProductService) {
+  private showCart$: EventEmitter<boolean>;
+
+  constructor(public productService: ProductService,
+              private orderService: OrderService) {
+    this.currentPage = 1;
+    this.currentPageSize = 10;
   }
 
   ngOnInit(): void {
-    this.productsList$ = this.productService.getProducts();
+    this.showCart$ = this.orderService.getShowCartEventEmitter();
+    this.showCart$.emit(true);
+
+    this.loadProducts();
   }
 
-  public reloadProducts(category: string): void {
+  public loadProducts(): void {
+    this.productsList$ = this.productService.getProducts(this.category, this.currentPage - 1, this.currentPageSize)
+      .pipe(
+        tap(p => this.pageAmount = p.totalAmount / this.currentPageSize),
+        map(productsContent => productsContent.productList));
+  }
+
+
+  public onPageSizeChange(pageSize: number): void {
+    this.currentPageSize = pageSize;
+    this.currentPage = 1;
+    this.loadProducts();
+  }
+
+  public changeCategory(category: string): void {
     if (category !== this.category) {
       this.category = category;
-      this.productsList$ = this.productService.getProducts(category);
+      this.loadProducts();
     }
+  }
+
+  public onLeftClick(): void {
+    this.currentPage = this.currentPage > 1 ? this.currentPage - 1 : 1;
+    this.loadProducts();
+  }
+
+  public onRightClick(): void {
+    this.currentPage = this.currentPage < this.pageAmount ? this.currentPage + 1 : this.pageAmount;
+    this.loadProducts();
+  }
+
+  public onPageClick(pageNumber: number): void {
+    this.currentPage = pageNumber;
+    this.loadProducts();
+  }
+
+  ngOnDestroy(): void {
+    this.showCart$.emit(false);
   }
 }
