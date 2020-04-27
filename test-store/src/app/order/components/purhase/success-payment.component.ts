@@ -3,10 +3,10 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-purhase',
-  templateUrl: './purhase.component.html',
-  styleUrls: ['./purhase.component.css']
+  templateUrl: './succes-payment.component.html',
+  styleUrls: ['./success-payment.component.css']
 })
-export class PurhaseComponent implements AfterViewInit {
+export class SuccessPaymentComponent implements AfterViewInit {
 
   constructor(private router: Router) {
   }

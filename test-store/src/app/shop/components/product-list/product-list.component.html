@@ -4,9 +4,9 @@
     <div class="nav col-12 col-lg-2 col-md-4 ">
       <nav>
         <ul>
-          <li (click)="changeCategory('games')">Games</li>
-          <li (click)="changeCategory('accessories')">Accessories</li>
-          <li (click)="changeCategory('consoles&vr')">Consoles & VR</li>
+          <li (click)="changeCategory('games')" [ngClass]="{selected_category: category | select : 'games'}">Games</li>
+          <li (click)="changeCategory('accessories')" [ngClass]="{selected_category: category | select : 'accessories'}">Accessories</li>
+          <li (click)="changeCategory('consoles&vr')" [ngClass]="{selected_category: category | select : 'consoles&vr'}">Consoles & VR</li>
         </ul>
       </nav>
     </div>
@@ -33,7 +33,6 @@
       <div class="page-number" *ngFor="let pageNumber of  pageAmount | array" (click)="onPageClick(pageNumber)">
         <p [ngClass]="{select: currentPage | select : pageNumber}"> {{pageNumber}} </p>
       </div>
-
       <div class="right" (click)="onRightClick()"><p>></p></div>
     </div>
 

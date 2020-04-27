@@ -4,12 +4,12 @@ import {CartComponent} from './components/cart/cart.component';
 import {OrderComponent} from './components/order/order.component';
 import {RouterModule} from '@angular/router';
 import {OrderItemComponent} from './components/order/order-item/order-item.component';
-import {CardComponent} from './components/card/card.component';
-import {PurhaseComponent} from './components/purhase/purhase.component';
+import {PaymentComponent} from './components/payment/payment.component';
+import {SuccessPaymentComponent} from './components/purhase/success-payment.component';
 
 
 @NgModule({
-  declarations: [CartComponent, OrderComponent, OrderItemComponent, CardComponent, PurhaseComponent],
+  declarations: [CartComponent, OrderComponent, OrderItemComponent, PaymentComponent, SuccessPaymentComponent],
   exports: [
     CartComponent
   ],

@@ -5,10 +5,10 @@ import {OrderService} from '../../services/order.service';
 
 @Component({
   selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.css']
 })
-export class CardComponent implements OnInit, OnDestroy {
+export class PaymentComponent implements OnInit, OnDestroy {
 
   public totalPrice: string;
 

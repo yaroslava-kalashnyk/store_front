@@ -72,6 +72,10 @@ select {
   color: white;
 }
 
+.selected_category {
+  opacity: 0.5;
+}
+
 .product-list {
   margin-top: 35px;
 }
