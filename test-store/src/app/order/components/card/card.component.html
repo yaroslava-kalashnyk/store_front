@@ -1,2 +1,52 @@
-<p>TODO: add form with validation</p>
-<button class="btn btn-dark" (click)="pay()">SUBMIT PAY</button>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12 col-md-6">
+      <div class="payment-form">
+
+
+        <div class="form-header">
+          <h3 class="panel-title">Payment Details</h3>
+          <hr/>
+        </div>
+        <div class="panel-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="cardNumber">CARD NUMBER</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                       required autofocus/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-7 col-md-7">
+                <div class="form-group">
+                  <label for="expityMonth">EXPIRATION DATE</label>
+                  <div class="col-xs-6 col-lg-6">
+                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required/>
+                  </div>
+                  <div class="col-xs-6 col-lg-6">
+                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required/></div>
+                </div>
+              </div>
+              <div class="col-xs-5 col-md-5 pull-right">
+                <div class="form-group">
+                  <label for="cvCode">CV CODE</label>
+                  <input type="password" class="form-control" id="cvCode" placeholder="CV" required/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="final-payment">
+        <span class="price-label"> Final Payment: </span>
+        <span class="price">{{totalPrice | number : '1.2-2'}}$</span>
+      </div>
+      <div class="row justify-content-md-center">
+        <button class="btn btn-dark btn-lg pay" (click)="pay()">Submit payment</button>
+      </div>
+    </div>
+  </div>
+</div>
+

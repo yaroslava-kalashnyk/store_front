@@ -1,0 +1,26 @@
+.payment-form {
+  margin: 40px;
+}
+
+.final-payment {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+
+  display: block;
+  width: 100%;
+
+  border-radius: .3rem;
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.price {
+  padding: 1px;
+  color: #007bff;
+  border-radius: .3rem;
+  background-color: white;
+  font-weight: bold;
+  float: right;
+}

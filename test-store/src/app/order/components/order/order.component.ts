@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from 'src/app/shop/models/product.model';
 import {OrderService} from '../../services/order.service';
 import {Router} from '@angular/router';
+import {LocalStorageService} from '../../../core/services/local-storage.service';
 
 @Component({
   selector: 'app-order',
@@ -13,6 +14,7 @@ export class OrderComponent implements OnInit {
   public totalPrice = 0;
 
   constructor(private orderService: OrderService,
+              private localStorage: LocalStorageService,
               private router: Router) {
   }
 
@@ -32,6 +34,7 @@ export class OrderComponent implements OnInit {
   }
 
   public pay(): void {
+    this.localStorage.setItem('totalPrice', this.totalPrice.toString());
     this.router.navigate(['payment']);
   }
 
