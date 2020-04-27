@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LocalStorageService} from '../../../core/services/local-storage.service';
+import {OrderService} from '../../services/order.service';
 
 @Component({
   selector: 'app-card',
@@ -12,6 +13,7 @@ export class CardComponent implements OnInit, OnDestroy {
   public totalPrice: string;
 
   constructor(private localStorageService: LocalStorageService,
+              private orderService: OrderService,
               private router: Router,
               private route: ActivatedRoute) {
   }
@@ -25,6 +27,7 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   public pay(): void {
+    this.orderService.cleanBoughtProducts();
     this.router.navigate(['success'], {relativeTo: this.route});
   }
 

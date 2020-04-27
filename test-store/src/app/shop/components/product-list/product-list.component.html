@@ -1,7 +1,7 @@
 <div class="content">
 
   <div class="row">
-    <div class="nav col-md-4">
+    <div class="nav col-12 col-lg-2 col-md-4 ">
       <nav>
         <ul>
           <li (click)="changeCategory('games')">Games</li>
@@ -12,7 +12,7 @@
     </div>
 
 
-    <div class="product-list col-md-8 row">
+    <div class="product-list col-12 col-lg-10 col-md-8 row">
       <div class="product-item nav col-md-4" *ngFor="let product of productsList$ | async">
         <app-product [product]="product"></app-product>
       </div>
@@ -21,13 +21,13 @@
 
   <div class="pagination row">
 
-    <select class="col-md-2" name="select" (change)="onPageSizeChange($event.target.value)">
-      <option value="10" selected>10</option>
-      <option value="30">30</option>
-      <option value="50">50</option>
+    <select class="col-2 col-sm-1" name="select" (change)="onPageSizeChange($event.target.value)">
+      <option value="12" selected>12</option>
+      <option value="36">36</option>
+      <option value="60">60</option>
     </select>
 
-    <div class="pages col-md-8">
+    <div class="pages col-10 col-sm-11 text-center">
       <div class="left" (click)="onLeftClick()"><p><</p></div>
 
       <div class="page-number" *ngFor="let pageNumber of  pageAmount | array" (click)="onPageClick(pageNumber)">

@@ -24,3 +24,14 @@
   font-weight: bold;
   float: right;
 }
+
+.form-header {
+  text-align: center;
+}
+
+.submit-payment {
+  margin: 30px auto;
+  display: block;
+  font-size: 23px;
+  padding: 10px 35px;
+}

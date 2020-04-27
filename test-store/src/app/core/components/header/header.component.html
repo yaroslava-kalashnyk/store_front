@@ -1,7 +1,8 @@
 <header>
   <img src="assets/images/header.jpg" alt="header">
-  <div *ngIf="showCart">
-    <app-cart></app-cart>
+  <div class="container">
+    <div class="cart-container text-right" *ngIf="showCart">
+      <app-cart></app-cart>
+    </div>
   </div>
-  <div class="container"></div>
 </header>

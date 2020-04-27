@@ -1,5 +1,5 @@
-<img (click)="navigateToOrder()" src="assets/images/cart.png" alt="logo">
-<div *ngIf="productsAmount > 0">
-  <img class="amount" src="assets/images/cart_part.png" alt="amount">
-  <p>{{productsAmount}}</p>
+<img class="cart-logo" (click)="navigateToOrder()" src="assets/images/cart.png" alt="logo">
+<div class="cart-amount" *ngIf="productsAmount > 0">
+  <img class="amount-logo" src="assets/images/cart_part.png" alt="amount">
+  <p class="amount-text">{{productsAmount}}</p>
 </div>

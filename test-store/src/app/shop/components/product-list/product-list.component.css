@@ -1,7 +1,7 @@
 nav {
   margin-top: 50px;
   background-color: #1976d2;
-  max-width: 30vh;
+  width: 100%;
   height: 150px;
   border: 2px outset #1976d2;
   border-radius: 10px;
@@ -35,25 +35,52 @@ nav li:last-child {
   border: 0;
 }
 
+.pagination {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 select {
   padding: 5px;
   font-size: 20px;
   border-radius: 5px;
-  background-color: darkseagreen;
+  background-color: #007bff;
+  color: white;
 }
 
-.pagination {
-  width: 100%;
-}
-
-.select {
-  background-color: red;
-}
-
-.left, .right, .page-number {
+.left,
+.right,
+.page-number {
   font-size: 20px;
   display: inline-block;
-  margin: 10px;
-  border: 1px outset silver;
-  background-color: silver;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
+.left p,
+.right p,
+.page-number p {
+  margin: 0;
+  padding: 5px;
+}
+
+.left:hover,
+.right:hover,
+.page-number:hover,
+.select {
+  background-color: #007bff;
+  color: white;
+}
+
+.product-list {
+  margin-top: 35px;
+}
+
+.product-list > div {
+  text-align: center;
+  padding: 15px 0;
+}
+
+app-product {
+  width: 100%;
 }

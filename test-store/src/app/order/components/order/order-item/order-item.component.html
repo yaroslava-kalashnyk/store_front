@@ -1,5 +1,24 @@
-<p>{{product.name}} <img [src]="getImageLink()" alt="product image"></p>
+<div class="order-item__container">
+  <div class="order-item__image">
+    <img [src]="getImageLink()" alt="product image" />
+  </div>
+  <div class="order-item__name">
+    <p>{{product.name}}</p>
+  </div>
+  <div class="order-item__count">
+    <div class="order-item__amount">
+      <span>{{amount}}</span>
+    </div>
+    <div class="order-list__control">
+      <button class="btn btn-sm btn-danger" (click) = removeProductItem()>-</button>
+      <button class="btn btn-sm btn-success" (click) = addProductItem()>+</button>
+    </div>
+  </div>
+  <div class="order-item__price">
+    <span>{{totalPrice | number : '1.2-2'}}$</span>
+  </div>
+</div>
 
-<button class="btn btn-sm btn-danger" (click) = removeProductItem()>-</button>
-<p>{{amount}}</p>
-<button class="btn btn-sm btn-success" (click) = addProductItem()>+</button>
+
+
+

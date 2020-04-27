@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   constructor(public productService: ProductService,
               private orderService: OrderService) {
     this.currentPage = 1;
-    this.currentPageSize = 10;
+    this.currentPageSize = 12;
   }
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   public loadProducts(): void {
     this.productsList$ = this.productService.getProducts(this.category, this.currentPage - 1, this.currentPageSize)
       .pipe(
-        tap(p => this.pageAmount = p.totalAmount / this.currentPageSize),
+        tap(p => this.pageAmount = Math.ceil(p.totalAmount / this.currentPageSize)),
         map(productsContent => productsContent.productList));
   }
 

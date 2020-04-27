@@ -1,3 +1,26 @@
-.amount {
-  width: 50px;
+img.cart-logo {
+  height: 70px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+img.amount-logo {
+  width: 25px;
+}
+
+.cart-amount {
+  position: absolute;
+  bottom: -15px;
+  right: 5px;
+}
+
+.amount-text {
+  color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
 }

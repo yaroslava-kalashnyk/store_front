@@ -1,0 +1,43 @@
+.order-item__container > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.order-item__image {
+  margin-right: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.order-item__name {
+  width: calc(100% - 380px);
+}
+
+.order-item__count {
+  width: 70px;
+}
+
+.order-item__amount {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.order-list__control {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.order-list__control button {
+  width: 27px;
+  height: 30px;
+  text-align: center;
+}
+
+.order-item__price {
+  width: 90px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 20px;
+}

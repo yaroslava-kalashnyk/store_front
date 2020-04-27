@@ -5,7 +5,9 @@
                     (changePrice)="changePrice($event)">
     </app-order-item>
   </div>
+</div>
 
+<div class="order_final">
   <h1>Total price: {{totalPrice | number : '1.2-2'}}$</h1>
-  <button class="btn btn-dark" (click)="pay()">PAY</button>
+  <button class="btn btn-dark submit-payment" (click)="pay()">Submit payment</button>
 </div>
