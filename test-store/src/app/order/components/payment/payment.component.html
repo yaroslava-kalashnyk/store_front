@@ -9,13 +9,25 @@
           <hr/>
         </div>
         <div class="panel-body">
-          <form role="form">
+          <form (ngSubmit)="pay()" [formGroup]="form">
             <div class="form-group">
-              <label for="cardNumber">CARD NUMBER:</label>
+              <label for="cardNumber" formControlName="card">CARD NUMBER:</label>
               <div class="input-group">
-                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                       required autofocus/>
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+
+                <input type="text" class="form-control" id="cardNumber" formControlName="card"
+                       placeholder="Valid Card Number"
+                       [ngClass]="{ 'invalid': submitted && cardForm.card.errors }" required autofocus/>
+
+                <div *ngIf="submitted && cardForm.card.errors">
+                  <span class="error"
+                        *ngIf="submitted && cardForm.card.errors.required">*Card number is required.</span>
+                  <span class="error"
+                        *ngIf="submitted && (cardForm.card.errors.minlength || cardForm.card.errors.maxlength)">
+                      *Card should contain 16 numbers</span>
+                  <span class="error"
+                        *ngIf="submitted && cardForm.card.errors.pattern">
+                      *Only numbers are allowed</span>
+                </div>
               </div>
             </div>
             <div class="row">
@@ -23,16 +35,51 @@
                 <div class="form-group row">
                   <div class="col-lg-12"><label for="expityMonth">EXPIRATION DATE: </label></div>
                   <div class="col-xs-6 col-lg-6">
-                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required/>
+                    <input type="text" class="form-control" id="expityMonth" formControlName="month" placeholder="MM"
+                           [ngClass]="{ 'invalid': submitted && cardForm.month.errors}" required/>
                   </div>
                   <div class="col-xs-6 col-lg-6">
-                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required/></div>
+                    <input type="text" class="form-control" id="expityYear" formControlName="year"
+                           [ngClass]="{ 'invalid': submitted && cardForm.year.errors}" placeholder="YY" required/>
+                  </div>
                 </div>
+
+                <div calss="expiration_errors">
+                  <div *ngIf="submitted && cardForm.month.errors">
+                    <span class="error"
+                          *ngIf="submitted && cardForm.month.errors.required">*Expiration month is required.</span>
+                    <span class="error"
+                          *ngIf="submitted && (cardForm.month.errors.min || cardForm.month.errors.min
+                          || cardForm.month.errors.minlength || cardForm.month.errors.minlength)">
+                      *Valid values are 01 - 12</span>
+                  </div>
+                  <div *ngIf="submitted && cardForm.year.errors">
+                    <span class="error"
+                          *ngIf="submitted && cardForm.year.errors.required">*Expiration year is required.</span>
+                    <span class="error"
+                          *ngIf="submitted && (cardForm.year.errors.min || cardForm.year.errors.min)">
+                      *Valid values are 20 - 50</span>
+                  </div>
+                </div>
+
               </div>
               <div class="col-xs-5 col-md-5 pull-right">
                 <div class="form-group">
-                  <label for="cvCode">CVV CODE:</label>
-                  <input type="password" class="form-control" id="cvCode" placeholder="CVV" required/>
+                  <label for="cvv">CVV CODE:</label>
+
+                  <input type="password" class="form-control" id="cvv" formControlName="cvv" placeholder="CVV"
+                         [ngClass]="{ 'invalid': submitted && cardForm.cvv.errors }" required autofocus/>
+
+                  <div *ngIf="submitted && cardForm.cvv.errors">
+                  <span class="error"
+                        *ngIf="submitted && cardForm.cvv.errors.required">*CVV is required.</span>
+                    <span class="error"
+                          *ngIf="submitted && (cardForm.cvv.errors.minlength || cardForm.cvv.errors.maxlength)">
+                      *CVV should contain 3 numbers</span>
+                    <span class="error"
+                          *ngIf="submitted && cardForm.cvv.errors.pattern">
+                      *Only numbers are allowed</span>
+                  </div>
                 </div>
               </div>
             </div>

@@ -5,7 +5,8 @@ import {OrderComponent} from './components/order/order.component';
 import {RouterModule} from '@angular/router';
 import {OrderItemComponent} from './components/order/order-item/order-item.component';
 import {PaymentComponent} from './components/payment/payment.component';
-import {SuccessPaymentComponent} from './components/purhase/success-payment.component';
+import {SuccessPaymentComponent} from './components/success-payment/success-payment.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import {SuccessPaymentComponent} from './components/purhase/success-payment.comp
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule
   ]
 })
-export class OrderModule { }
+export class OrderModule {
+}

@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   public currentPage: number;
   public currentPageSize: number;
-  private category: string;
+  public category: string;
 
   private showCart$: EventEmitter<boolean>;
 

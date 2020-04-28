@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ProductListComponent} from './shop/components/product-list/product-list.component';
 import {OrderComponent} from './order/components/order/order.component';
 import {PaymentComponent} from './order/components/payment/payment.component';
-import {SuccessPaymentComponent} from './order/components/purhase/success-payment.component';
+import {SuccessPaymentComponent} from './order/components/success-payment/success-payment.component';
 import {NotFoundComponent} from './core/components/not-found/not-found.component';
 
 
